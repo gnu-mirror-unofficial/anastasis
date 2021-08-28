@@ -1,0 +1,279 @@
+<!--#include virtual="/server/header.html" -->
+<!-- Parent-Version: 1.92 -->
+<!-- This page is derived from /server/standards/boilerplate.html -->
+<title>Anastasis - GNU Project - Free Software Foundation</title>
+<style type="text/css"><!--
+.reduced-width { width: 61em; }
+.emph-box { padding: .7em 1.2em; }
+.summary { width: 13em; margin-top: 1.7em; }
+--></style>
+<meta name="content-language" content="en" />
+<meta name="description" content="privacy-preserving key backup and recovery" />
+<meta name="language" content="en" />
+<meta name="keywords" content="Anastasis,privacy,key management,escrow,multiparty,library,C,AGPL,free,GNU,Linux,GPL" />
+<meta name="robots" content="index,follow" />
+<meta name="revisit-after" content="28 days" />
+<meta name="date" content="2021-8-28" />
+<meta http-equiv="expires" content="43200" />
+
+<!--#include virtual="/server/gnun/initial-translations-list.html" -->
+<!--#include virtual="/server/banner.html" -->
+<div class="reduced-width">
+<h2 id="main-heading">GNU Anastasis</h2>
+<hr class="thin" />
+
+<p>
+GNU Anastasis is a Free Software protocol and implementation that
+allows users to securely deposit core secrets with an open set of
+escrow providers and to recover these secrets if their original copies
+are lost.  Anastasis is free software and part of the <a href="/">GNU
+    project</a>.
+</p>
+<p>
+  Currently, GNU Anastasis is released as Alpha-quality software.
+  <b>It is not yet production ready! You cannot rely on it to keep
+    your secrets recoverable today!</b>  In particular, we need to
+    still review the various country-specific questions used to create
+    unique user identifiers at the beginning of the backup and
+    recovery process.  Community feedback on those inputs would be
+    particularly welcome!
+</p>
+<p>
+Key features that distinguish Anastasis from other
+projects are:
+</p>
+<ul>
+  <li>Multiple independent providers store key shares</li>
+  <li>Providers learn nothing about their users during backup</li>
+  <li>Providers only learn required data for authentication (not key share) during recovery</li>
+  <li>Integrated privacy-preserving payments with GNU Taler</li>
+  <li>Authentication requirements configured by end-user</li>
+  <li>Flexible recovery policies, not only k-out-of-n</li>
+  <li>Pluggable authentication methods (today: SMS, e-mail, snail mail, security question and IBAN wire transfer)</li>
+  <li>Commercial support available via <a href="https://anastasis.lu/">Anastasis SARL</a></li>
+</ul>
+<p>
+  Anastasis was started because <a href="https://taler.net/">GNU Taler</a>
+  needed a privacy-preserving way for users to recover encryption keys for
+  backups of the Taler wallet. Furthermore, we were told by regulators that
+  data recovery could not hinge on a user remembering a strong passphrase.
+  Existing alternatives were either non-free, relied on a single-provider's
+  trustworthiness, did not maintain confidentiality of the key at all times,
+  or required the user to involve their friends in safekeeping their keys.
+  In contrast, Anastasis is designed to provide the best possible privacy
+  by design and a viable business model for commercial escrow providers.
+</p>
+
+<div class="summary">
+<hr class="no-display" />
+<h3 class="no-display">Table of Contents</h3>
+<ul>
+  <li><a href="#main-heading">Back to main heading</a></li>
+  <li><a href="#download">Downloading</a></li>
+  <li><a href="#documentation">Documentation</a></li>
+  <li><a href="#mail">Mailing lists</a></li>
+  <li><a href="#contribute">Getting involved</a></li>
+  <li><a href="#license">Licensing</a></li>
+</ul>
+<hr class="no-display" />
+</div>
+
+<h3 id="download">Downloading Anastasis</h3>
+<dl>
+<dt>Source Code</dt>
+<dd>Anastasis
+ is available from the main GNU FTP server via
+<a href="https://ftp.gnu.org/gnu/anastasis/">HTTP(S)</a> and
+<a href="ftp://ftp.gnu.org/gnu/anastasis/">FTP</a>.  It can also be found
+on the <a href="/prep/ftp.html">GNU mirrors</a>;
+please
+<a href="https://ftpmirror.gnu.org/anastasis/">use
+a mirror</a> if possible.</dd>
+
+<dt>Debian package</dt>
+<dd>
+A Debian package can be downloaded from the <a href="https://deb.taler.net/">GNU Taler Debian package repository</a>.
+Instructions for adding this repository are in our
+<a href="https://docs.anastasis.lu/installation.html#installing-anastasis-binary-packages-on-debian">documentation</a>.
+</dd>
+
+<dt>Tar Package</dt>
+<dd>
+The latest version can be found on <a href="https://ftpmirror.gnu.org/anastasis/">GNU mirrors</a>.
+If the mirror does not work, you should be able to find them on the
+<a href="https://ftp.gnu.org/gnu/anastasis/">main FTP server</a>.
+<p>
+  Latest release is <a href="https://ftpmirror.gnu.org/anastasis/anastasis-latest.tar.gz">anastasis-latest.tar.gz</a>.
+  Latest release of the Gtk+ GUI is <a href="https://ftpmirror.gnu.org/anastasis/anastasis-gtk-latest.tar.gz">anastasis-gtk-latest.tar.gz</a>.
+</p>
+</dd>
+
+<h3 id="documentation">Documentation</h3>
+
+<p>
+In addition to the brief documentation on this webpage, we
+have various other forms of documentation available:
+</p>
+<dl>
+  <dt>Manual</dt>
+  <dd><a href="https://docs.anastasis.lu/">The manual for GNU Anastasis</a>
+    includes everything from a project overview to internals about the system.
+    After installing Anastasis, you can find the same information also
+    by running <kbd>info&nbsp;anastasis</kbd>.
+  </dd>
+  <dt>Thesis</dt>
+  <dd>A <a href="https://anastasis.lu/papers/thesis-anastasis-2020.pdf">Bachelor's thesis</a>
+    documents the original design and implementation.</dd>
+</dl>
+
+
+<h3 id="mail">Mailing lists</h3>
+
+<p>Anastasis uses the
+<a href="https://lists.gnu.org/mailman/listinfo/anastasis">anastasis</a>
+mailinglist to discuss all aspects of Anastasis, including support,
+development and enhancement requests, as well as bug reports.
+</p>
+
+<p>Announcements about Anastasis
+and most other GNU software are made on
+<a href="http://lists.gnu.org/mailman/listinfo/info-gnu">info-gnu</a>
+(<a href="http://lists.gnu.org/archive/html/info-gnu/">archive</a>).
+You can also subscribe to our <a href="https://anastasis.lu/en/rss.xml">RSS feed</a>.
+</p>
+
+<p>
+Security reports that should not be made immediately public can be
+sent directly to <a href="https://grothoff.org/christian/">the
+maintainer</a>.  If there is no response to an urgent issue, you can
+escalate to the general
+<a href="https://lists.gnu.org/mailman/listinfo/security">security</a>
+mailing list for advice.</p>
+
+
+<h3 id="contribute">Getting involved</h3>
+
+<p>Development of
+Anastasis,
+and GNU in general, is a volunteer effort, and you can contribute.  For
+information, please read <a href="/help/">How to help GNU</a>.  If you'd
+like to get involved, it's a good idea to join the discussion mailing
+list (see above).</p>
+
+<dl>
+<dt>Development</dt>
+<dd>Known bugs and open feature requests are tracked in
+    <a href="https://bugs.anastasis.lu/">our bugtracker</a>.
+    You need to sign up for a reporter account.  Please make
+    sure you report bugs under <strong>Anastasis</strong> and not
+    under any of the other projects.</dd>
+<dt>Git access</dt>
+<dd>
+<p>You can access the current development version of Anastasis using</p>
+<pre class="emph-box">$ git clone https://git.taler.net/anastasis.git</pre>
+<pre class="emph-box">$ git clone https://git.taler.net/anastasis-git.git</pre>
+<p>Our GNU website is kept at</p>
+<pre class="emph-box">$ cvs -z3 -d:pserver:anonymous@cvs.savannah.gnu.org:/web/anastasis co anastasis</pre>
+</dd>
+</dl>
+
+
+<h3 id="quickintro">Quick Introduction</h3>
+<dl>
+<dt>Dependencies</dt>
+<dd>
+  Anastasis depends on various other GNU packages, including
+  <a href="https://taler.net/">GNU Taler</a>,
+  <a href="https://gnunet.org/">GNUnet</a> and
+  <a href="https://www.gnu.org/s/libmicrohttpd/">GNU Libmicrohttpd</a>.
+</dd>
+
+
+<dt>Projects that use GNU Anastasis</dt>
+<p>
+  If you write an application that uses Anastasis, please
+  let us know so that we can add you to the list!
+</p>
+<dd>
+  <ul>
+    <li><a href="https://taler.net/">GNU Taler (payment system)</a></li>
+  </ul>
+</dd>
+
+<dt>Alternatives</dt>
+<dd>
+If you are aware of a competing free software project that might be a better fit for
+some users, please let us know so that we can add it to the list!
+<ul>
+<li><a href="https://www.nitrokey.com/">NitroKey</a></li>
+</ul>
+</dd>
+
+</dl>
+
+
+<h3 id="license">Licensing</h3>
+
+<p>Anastasis
+is free software; you can redistribute it and/or modify it under the
+<a href="/licenses/agpl-3.0.html">GNU Affero GPL v3</a> or at your
+option <a href="/licenses/agpl.html">any later version</a>.  If you
+have questions about licensing, especially when it comes to integrate
+Anastasis into some third party software, please contact
+the <a href="http://grothoff.org/christian/">maintainer</a>.  We are
+in general open to changing the license of the client-side logic to
+enable broader use.
+</p>
+</div>
+
+</div><!-- for id="content", starts in the include above -->
+<!--#include virtual="/server/footer.html" -->
+<div id="footer">
+<div class="unprintable">
+
+<p>Please send general FSF &amp; GNU inquiries to
+<a href="mailto:gnu@gnu.org">&lt;gnu@gnu.org&gt;</a>.
+There are also <a href="/contact/">other ways to contact</a>
+the FSF.  Broken links and other corrections or suggestions can be sent
+to <a href="mailto:anastasis@gnu.org">&lt;anastasis@gnu.org&gt;</a>.</p>
+
+<p>Please see the <a
+href="/server/standards/README.translations.html">Translations
+README</a> for information on coordinating and contributing translations
+of this article.</p>
+</div>
+
+<!-- Regarding copyright, in general, standalone pages (as opposed to
+     files generated as part of manuals) on the GNU web server should
+     be under CC BY-ND 4.0.  Please do NOT change or remove this
+     without talking with the webmasters or licensing team first.
+     Please make sure the copyright date is consistent with the
+     document.  For web pages, it is ok to list just the latest year the
+     document was modified, or published.
+
+     If you wish to list earlier years, that is ok too.
+     Either "2001, 2002, 2003" or "2001-2003" are ok for specifying
+     years, as long as each year in the range is in fact a copyrightable
+     year, i.e., a year in which the document was published (including
+     being publicly visible on the web or in a revision control system).
+
+     There is more detail about copyright years in the GNU Maintainers
+     Information document, www.gnu.org/prep/maintain. -->
+
+<p>Copyright &copy; 2012-2016 Free Software Foundation, Inc.</p>
+
+<p>This page is licensed under a <a rel="license"
+href="http://creativecommons.org/licenses/by-nd/4.0/">Creative
+Commons Attribution-NoDerivatives 4.0 International License</a>.</p>
+
+<!--#include virtual="/server/bottom-notes.html" -->
+
+<p class="unprintable">Updated:
+<!-- timestamp start -->
+$Date: 2021/08/28 08:12:39 $
+<!-- timestamp end -->
+</p>
+</div>
+</div><!-- for class="inner", starts in the banner include -->
+</body>
+</html>
